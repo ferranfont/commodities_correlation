@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commodities Correlation Analysis - Charts Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #2d2d2d;
+            border-radius: 10px;
+        }
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .chart-card {
+            background-color: #2d2d2d;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .chart-card:hover {
+            transform: translateY(-5px);
+            background-color: #3d3d3d;
+        }
+        .chart-card a {
+            color: #4ECDC4;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .chart-card p {
+            margin: 10px 0;
+            color: #cccccc;
+            font-size: 14px;
+        }
+        .category {
+            margin-bottom: 30px;
+        }
+        .category h2 {
+            color: #4ECDC4;
+            border-bottom: 2px solid #4ECDC4;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛢️ Descorrelaciona tu Trading - Commodities Analysis</h1>
+            <p>Interactive charts for 20 years of commodities data analysis</p>
+            <p><strong>Assets:</strong> Crude Oil (CL), NASDAQ, Gold (GC), EUR/USD</p>
+        </div>
+
+        <div class="category">
+            <h2>📊 Overview & Comparison Charts</h2>
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <a href="all_commodities_lines.html" target="_blank">All Commodities Price Lines</a>
+                    <p>Compare price movements of all assets over 20 years</p>
+                </div>
+                <div class="chart-card">
+                    <a href="percentage_growth.html" target="_blank">Percentage Growth Analysis</a>
+                    <p>Normalized growth comparison from base 0 starting point</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>🔗 Correlation Analysis</h2>
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <a href="correlation_heatmap.html" target="_blank">Correlation Heatmap</a>
+                    <p>Matrix showing correlations between all commodities</p>
+                </div>
+                <div class="chart-card">
+                    <a href="commodities_vs_nasdaq.html" target="_blank">Commodities vs NASDAQ</a>
+                    <p>Individual commodity comparisons against NASDAQ</p>
+                </div>
+                <div class="chart-card">
+                    <a href="rolling_correlations.html" target="_blank">Rolling Correlations</a>
+                    <p>Time-varying correlations with NASDAQ (1-year window)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>🕯️ Individual Candlestick Charts</h2>
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <a href="crude_oil_candlestick.html" target="_blank">Crude Oil (CL)</a>
+                    <p>Daily OHLC candlestick chart for petroleum</p>
+                </div>
+                <div class="chart-card">
+                    <a href="nasdaq_candlestick.html" target="_blank">NASDAQ Composite</a>
+                    <p>Daily OHLC candlestick chart for NASDAQ index</p>
+                </div>
+                <div class="chart-card">
+                    <a href="gold_candlestick.html" target="_blank">Gold (GC)</a>
+                    <p>Daily OHLC candlestick chart for gold futures</p>
+                </div>
+                <div class="chart-card">
+                    <a href="eurusd_candlestick.html" target="_blank">EUR/USD</a>
+                    <p>Daily OHLC candlestick chart for EUR/USD currency pair</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 20px; background-color: #2d2d2d; border-radius: 10px;">
+            <h3>🎯 Trading Strategy Insights</h3>
+            <p>Use these charts to identify:</p>
+            <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+                <li><strong>Correlation Patterns:</strong> Find periods of low correlation for diversification</li>
+                <li><strong>Currency Impact:</strong> Monitor EUR/USD strength vs USD-denominated assets</li>
+                <li><strong>Cross-Asset Analysis:</strong> Analyze relationships between stocks, commodities & FX</li>
+                <li><strong>Risk Management:</strong> Use correlation data for position sizing and hedging</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
