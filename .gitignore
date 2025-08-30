@@ -1,0 +1,228 @@
+# Commodities Correlation Analysis - Git Ignore File
+# Prevent sensitive and unnecessary files from being committed to GitHub
+
+# ==============================================================================
+# ENVIRONMENT AND SECRETS
+# ==============================================================================
+.env
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# API Keys and credentials
+credentials.json
+config.ini
+secrets/
+keys/
+*.key
+*.pem
+
+# ==============================================================================
+# PYTHON
+# ==============================================================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Virtual environments
+.env/
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ==============================================================================
+# DATA AND OUTPUTS (Optional - uncomment if you don't want to commit data)
+# ==============================================================================
+# Uncomment these lines if you don't want to commit data files to GitHub
+# data/*.csv
+# data/*.json
+# data/*.xlsx
+# data/*.parquet
+
+# Large output files
+# outputs/*.html
+# outputs/*.pdf
+# outputs/*.png
+# outputs/*.jpg
+
+# Charts (uncomment if charts are too large for GitHub)
+# charts/*.html
+
+# ==============================================================================
+# LOGS AND TEMPORARY FILES
+# ==============================================================================
+*.log
+logs/
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# ==============================================================================
+# IDE AND EDITOR FILES
+# ==============================================================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ==============================================================================
+# OPERATING SYSTEM FILES
+# ==============================================================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+
+# ==============================================================================
+# DATABASE FILES
+# ==============================================================================
+*.db
+*.sqlite
+*.sqlite3
+
+# ==============================================================================
+# BACKUP FILES
+# ==============================================================================
+*.backup
+*.bak
+*.old
+*.orig
+
+# ==============================================================================
+# TRADING SPECIFIC
+# ==============================================================================
+# Proprietary trading strategies (if any)
+strategies/proprietary/
+# Trading logs with sensitive data
+trading_logs/
+# Personal trading configurations
+personal_config/
+
+# ==============================================================================
+# DOCKER (if used in future)
+# ==============================================================================
+# Dockerfile.local
+# docker-compose.override.yml
+
+# ==============================================================================
+# CLOUD CREDENTIALS
+# ==============================================================================
+# AWS
+.aws/
+*.pem
+
+# Google Cloud
+gcloud/
+*.json
+
+# Azure
+.azure/
+
+# ==============================================================================
+# MISC
+# ==============================================================================
+node_modules/
+.npm
+.yarn/
+*.tgz
+*.tar.gz
