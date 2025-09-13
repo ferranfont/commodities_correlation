@@ -26,6 +26,12 @@ python plot_data.py
 
 # Open charts dashboard in browser
 start charts/index.html
+
+# Open comprehensive dashboard with all charts embedded and visible
+python create_embedded_dashboard.py
+
+# Quick dashboard launcher
+python run_dashboard.py
 ```
 
 ### Development Commands

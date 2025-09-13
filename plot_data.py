@@ -66,8 +66,9 @@ def plot_candlestick_chart(data, title, symbol):
         xaxis_title='Date',
         yaxis_title='Price',
         xaxis_rangeslider_visible=False,
-        template='plotly_dark',
-        height=600
+        template='plotly_white',
+        height=675,
+        width=1275
     )
     
     return fig
@@ -103,8 +104,9 @@ def plot_price_lines():
         title='All Commodities - Price Comparison (20 Years)',
         xaxis_title='Date',
         yaxis_title='Price',
-        template='plotly_dark',
-        height=600,
+        template='plotly_white',
+        height=675,
+        width=1275,
         hovermode='x unified'
     )
     
@@ -137,14 +139,15 @@ def plot_percentage_growth():
             line=dict(width=2)
         ))
     
-    fig.add_hline(y=0, line_dash="dash", line_color="white", opacity=0.5)
+    fig.add_hline(y=0, line_dash="dash", line_color="gray", opacity=0.5)
     
     fig.update_layout(
         title='Commodities Percentage Growth from Initial Point (20 Years)',
         xaxis_title='Date',
         yaxis_title='Percentage Growth (%)',
-        template='plotly_dark',
-        height=600,
+        template='plotly_white',
+        height=675,
+        width=1275,
         hovermode='x unified'
     )
     
@@ -158,13 +161,20 @@ def plot_percentage_growth():
 def calculate_correlation_matrix(data_dict):
     """Calculate correlation matrix for all commodities"""
     
-    # Combine all closing prices into one DataFrame
+    # Combine all closing prices into one DataFrame with proper alignment
     combined_data = pd.DataFrame()
     for name, data in data_dict.items():
-        combined_data[name] = data['Close']
+        if 'Close' in data.columns:
+            combined_data[name] = data['Close']
     
-    # Calculate correlation matrix
-    correlation_matrix = combined_data.corr()
+    # Remove any columns with all NaN values
+    combined_data = combined_data.dropna(axis=1, how='all')
+    
+    # Calculate correlation matrix, handling missing values properly
+    correlation_matrix = combined_data.corr(method='pearson', min_periods=1)
+    
+    # Replace any remaining NaN values with 0
+    correlation_matrix = correlation_matrix.fillna(0)
     
     return correlation_matrix
 
@@ -173,23 +183,28 @@ def plot_correlation_heatmap():
     data_dict = load_all_data()
     correlation_matrix = calculate_correlation_matrix(data_dict)
     
+    # Create text annotations, replacing any null/nan with empty string
+    text_annotations = correlation_matrix.round(3).values.astype(str)
+    text_annotations = np.where(text_annotations == 'nan', '', text_annotations)
+    
     fig = go.Figure(data=go.Heatmap(
         z=correlation_matrix.values,
-        x=correlation_matrix.columns,
-        y=correlation_matrix.index,
+        x=list(correlation_matrix.columns),
+        y=list(correlation_matrix.index),
         colorscale='RdBu',
         zmid=0,
-        text=correlation_matrix.round(3).values,
+        text=text_annotations,
         texttemplate="%{text}",
-        textfont={"size": 12},
-        hoverongaps=False
+        textfont={"size": 14, "color": "black"},
+        hoverongaps=False,
+        showscale=True
     ))
     
     fig.update_layout(
         title='Commodities Correlation Matrix (20 Years)',
-        template='plotly_dark',
-        height=600,
-        width=700
+        template='plotly_white',
+        height=675,
+        width=1275
     )
     
     # Save as HTML
@@ -242,8 +257,9 @@ def plot_correlations_vs_nasdaq():
     
     fig.update_layout(
         title='Individual Commodities vs NASDAQ Comparison',
-        template='plotly_dark',
-        height=800,
+        template='plotly_white',
+        height=675,
+        width=1275,
         showlegend=True
     )
     
@@ -287,7 +303,7 @@ def plot_rolling_correlations():
                 line=dict(width=2)
             ))
     
-    fig.add_hline(y=0, line_dash="dash", line_color="white", opacity=0.3)
+    fig.add_hline(y=0, line_dash="dash", line_color="gray", opacity=0.5)
     fig.add_hline(y=0.5, line_dash="dot", line_color="green", opacity=0.3)
     fig.add_hline(y=-0.5, line_dash="dot", line_color="red", opacity=0.3)
     
@@ -295,8 +311,9 @@ def plot_rolling_correlations():
         title=f'Rolling Correlation vs NASDAQ ({window} days window)',
         xaxis_title='Date',
         yaxis_title='Correlation Coefficient',
-        template='plotly_dark',
-        height=600,
+        template='plotly_white',
+        height=675,
+        width=1275,
         hovermode='x unified'
     )
     

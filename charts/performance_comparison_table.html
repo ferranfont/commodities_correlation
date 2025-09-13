@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 Comparativa Rendimiento - NASDAQ vs Estrategia Crisis</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            padding: 25px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: linear-gradient(135deg, #2c5aa0, #1e3c72);
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            margin: 5px 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .performance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .performance-table th {
+            background: linear-gradient(135deg, #2c5aa0, #1e3c72);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .performance-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 1em;
+        }
+        
+        .performance-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .performance-table tr:hover {
+            background-color: #e3f2fd;
+            transform: scale(1.01);
+            transition: all 0.2s ease;
+        }
+        
+        .metric-cell {
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+        
+        .nasdaq-cell {
+            color: #ff6b35;
+            font-weight: 600;
+        }
+        
+        .strategy-cell {
+            color: #27ae60;
+            font-weight: 600;
+        }
+        
+        .analysis-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .analysis-section h2 {
+            color: #2c5aa0;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .analysis-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #2c5aa0;
+        }
+        
+        .analysis-item h3 {
+            color: #2c5aa0;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        
+        .metric-value {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .positive {
+            color: #27ae60;
+        }
+        
+        .negative {
+            color: #e74c3c;
+        }
+        
+        .neutral {
+            color: #f39c12;
+        }
+        
+        .summary-box {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .summary-box h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.5em;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .performance-table {
+                font-size: 0.9em;
+            }
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Comparativa de Rendimiento</h1>
+            <p><strong>NASDAQ Puro vs Estrategia Combinada Crisis</strong></p>
+            <p>Período: 20 Años | Capital: $10,000 | Crisis: 32.2% tiempo</p>
+        </div>
+        
+        <table class="performance-table">
+            <thead>
+                <tr>
+                    <th>Métrica</th>
+                    <th>🔵 NASDAQ Puro</th>
+                    <th>🟢 Estrategia Combinada</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td class="metric-cell">Capital Inicial</td>
+                    <td class="nasdaq-cell">$10,000</td>
+                    <td class="strategy-cell">$10,000</td>
+                </tr>
+                <tr>
+                    <td class="metric-cell">Capital Final</td>
+                    <td class="nasdaq-cell">$100,742</td>
+                    <td class="strategy-cell">$43,855</td>
+                </tr>
+                <tr>
+                    <td class="metric-cell">Ganancia Absoluta</td>
+                    <td class="nasdaq-cell">$+90,742</td>
+                    <td class="strategy-cell">$+33,855</td>
+                </tr>
+                <tr>
+                    <td class="metric-cell">Retorno Total (%)</td>
+                    <td class="nasdaq-cell">+907.4%</td>
+                    <td class="strategy-cell">+338.5%</td>
+                </tr>
+                <tr>
+                    <td class="metric-cell">Retorno Anual (%)</td>
+                    <td class="nasdaq-cell">+45.4%</td>
+                    <td class="strategy-cell">+16.9%</td>
+                </tr>
+                <tr>
+                    <td class="metric-cell">Volatilidad (%)</td>
+                    <td class="nasdaq-cell">22.0%</td>
+                    <td class="strategy-cell">13.3%</td>
+                </tr>
+                <tr>
+                    <td class="metric-cell">Ratio Sharpe</td>
+                    <td class="nasdaq-cell">10.10</td>
+                    <td class="strategy-cell">3.76</td>
+                </tr>
+                <tr>
+                    <td class="metric-cell">Drawdown Máx (%)</td>
+                    <td class="nasdaq-cell">-55.6%</td>
+                    <td class="strategy-cell">-33.6%</td>
+                </tr>
+                <tr>
+                    <td class="metric-cell">Profit Factor</td>
+                    <td class="nasdaq-cell">N/A</td>
+                    <td class="strategy-cell">2.2</td>
+                </tr>
+                <tr>
+                    <td class="metric-cell">Tasa Éxito (%)</td>
+                    <td class="nasdaq-cell">N/A</td>
+                    <td class="strategy-cell">45%</td>
+                </tr>
+                <tr>
+                    <td class="metric-cell">Total Trades</td>
+                    <td class="nasdaq-cell">N/A</td>
+                    <td class="strategy-cell">11</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="summary-box">
+            <h3>🏆 Resumen Estrategia</h3>
+            <p><strong>Estrategia Combinada</strong> no superó a NASDAQ puro por <strong>568.9%</strong>, 
+            operando en modo crisis <strong>32.2%</strong> del tiempo.</p>
+            <p><strong>Diferencias clave:</strong> Volatilidad -8.7% | 
+            Drawdown -22.0% | 
+            11 trades (45% éxito)</p>
+        </div>
+        
+        <div class="footer">
+            <p>📊 Análisis Estrategia Crisis Oro | 
+            Basado en 20 años datos históricos (5,026 días trading)</p>
+            <p>🚀 Estrategia para trading descorrelacionado en períodos crisis</p>
+        </div>
+    </div>
+</body>
+</html>
